@@ -1198,6 +1198,7 @@ GameObject:
   - component: {fileID: 2131030401}
   - component: {fileID: 2131030400}
   - component: {fileID: 2131030399}
+  - component: {fileID: 2131030402}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -1307,6 +1308,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131030397}
   m_CullTransparentMesh: 1
+--- !u!114 &2131030402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131030397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d15c29e22f57a4c9b6b7b54c8757d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSceneTransition
+  scenename: Game
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
