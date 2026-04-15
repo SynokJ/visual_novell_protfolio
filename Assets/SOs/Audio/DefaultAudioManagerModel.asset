@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2200a074521eb644985fb4b64f688d25, type: 3}
+  m_Name: DefaultAudioManagerModel
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManagerModel
+  parameters:
+  - clip: {fileID: 8300000, guid: e7203ce7f87af364aa3d4fd14a0d8eca, type: 3}
+    identifier: {fileID: 11400000, guid: 7d966dfe042eaf545aa102886dc5fdb2, type: 2}
