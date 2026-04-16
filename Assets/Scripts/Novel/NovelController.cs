@@ -49,10 +49,15 @@ public class NovelController : MonoBehaviour
                     thirdChoiceButton.onClick.AddListener(UpdateByChoice);
 
                     currentSpeachChoiceableModel = choiceableModel;
+                    Debug.Log($"{choiceableModel.NameText}:{choiceableModel.SpeachText}");
+                    Debug.Log("Game Item Choice");
                     nextButton.gameObject.SetActive(false);
                 }
                 else
                 {
+                    firstChoiceButton.onClick.RemoveAllListeners();
+                    secondChoiceButton.onClick.RemoveAllListeners();
+                    thirdChoiceButton.onClick.RemoveAllListeners();
                     nextButton.gameObject.SetActive(true);
                     Switch(tempItemModel);
                 }
@@ -65,6 +70,14 @@ public class NovelController : MonoBehaviour
     protected virtual void UpdateByChoice()
     {
         nextSpeachModel = currentSpeachChoiceableModel.TryGetProgressModel(default);
+        OnModelActivated(nextSpeachModel);
+
+        firstChoiceButton.onClick.RemoveAllListeners();
+        secondChoiceButton.onClick.RemoveAllListeners();
+        thirdChoiceButton.onClick.RemoveAllListeners();
+        nextButton.gameObject.SetActive(true);
+
+        Switch(currentSpeachChoiceableModel);
     }
 
     protected virtual void Switch(AbstractNovelItemModel tempItemModel)

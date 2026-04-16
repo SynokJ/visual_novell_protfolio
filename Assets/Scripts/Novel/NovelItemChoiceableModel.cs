@@ -24,18 +24,21 @@ public class NovelItemChoiceableModel : AbstractNovelItemModel
     {
         selectedChoiceModel = firstChoiceModel;
         TryGetProgressModel(default);
+        Debug.Log("FirstChoiceSelect");
     }
 
     public virtual void SecondChoiceSelect()
     {
         selectedChoiceModel = secondChoiceModel;
         TryGetProgressModel(default);
+        Debug.Log("SecondChoiceSelect");
     }
 
     public virtual void ThirdChoiceSelect()
     {
         selectedChoiceModel = thirdChoiceModel;
         TryGetProgressModel(default);
+        Debug.Log("ThirdChoiceSelect");
     }
 
     public override AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model)
