@@ -12,7 +12,8 @@ public class NovelModel : ScriptableObject
         "Teacher",
         "Thoughts",
         "Timur",
-        "Voice"
+        "Voice",
+        "Question"
     };
 
     public IReadOnlyCollection<AbstractNovelItemModel> NovelItemsModel => novelItemsModel;
@@ -28,6 +29,9 @@ public class NovelModel : ScriptableObject
             string path = NOVEL_MODELS_PATH + tempSub;
             AbstractNovelItemModel[] typedItems = Resources.LoadAll<AbstractNovelItemModel>(path);
             loadedItems.AddRange(typedItems);
+
+            //if (tempSub.Equals(SUBJECTS[4]))
+            //    Debug.Log($"<color=orange>{tempSub} => {typedItems.Count()} => {typedItems[0].NameText}|{typedItems[0].SpeachText}</color>");
         }
 
         novelItemsModel = loadedItems.ToArray();

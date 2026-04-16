@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,8 +47,12 @@ public class NovelView : MonoBehaviour
             SetChoiceVisibility(true);
         }
 
+        characterImage.enabled = !model.CharacterSprite.IsUnityNull();
         characterImage.sprite = model.CharacterSprite;
+        characterImage.preserveAspect = true;
+
         backgroundImage.sprite = model.BackgroundSprite;
+        backgroundImage.preserveAspect = true;
     }
 
     protected virtual void SetChoiceVisibility(bool status)
