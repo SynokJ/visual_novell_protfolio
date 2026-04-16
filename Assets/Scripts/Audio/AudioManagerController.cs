@@ -16,7 +16,6 @@ public class AudioManagerController : AbstractDataComponentUploader<AudioManager
             if (tempParameter.Identifier == id)
             {
                 audioSource.PlayOneShot(tempParameter.Clip);
-                Debug.Log("PlayAudioById  => " + tempParameter.Clip != null);
                 break;
             }
     }

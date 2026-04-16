@@ -15,7 +15,7 @@ MonoBehaviour:
   nameText: ...
   speachText: "\u041F\u0430\u0443\u0437\u0430. \u0410\u0439\u043A\u0430 \u043F\u043E\u0434\u043D\u0438\u043C\u0430\u0435\u0442
     \u0440\u0443\u043A\u0443 \u0438 \u043E\u0442\u0432\u0435\u0447\u0430\u0435\u0442."
-  characterSprite: {fileID: 0}
-  backgroundSprite: {fileID: 0}
+  characterSprite: {fileID: 21300000, guid: 3cf8ae89579fd29479f4269d09600e16, type: 3}
+  backgroundSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   speachIdentifier: {fileID: 11400000, guid: 384fddd4d6eab9c469bc947de4cc099e, type: 2}
   nextModelId: {fileID: 11400000, guid: 32dff8ce0b4cc7a4b8dd0f46400aabcb, type: 2}

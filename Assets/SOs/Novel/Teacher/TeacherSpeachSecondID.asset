@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NovelItemSimpleModel
   nameText: "\u041F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u044C"
   speachText: "\u201CExactly. That\u2019s the level I expect.\u201D"
-  characterSprite: {fileID: 0}
-  backgroundSprite: {fileID: 0}
+  characterSprite: {fileID: 21300000, guid: d4d64a6cd9624c34a815dd79fb2a20a4, type: 3}
+  backgroundSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   speachIdentifier: {fileID: 11400000, guid: 32dff8ce0b4cc7a4b8dd0f46400aabcb, type: 2}
   nextModelId: {fileID: 11400000, guid: db6f2e8e471446c48970badc6dbfc293, type: 2}

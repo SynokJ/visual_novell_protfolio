@@ -5,11 +5,14 @@ using UnityEngine.UI;
 [RequireComponent(typeof(NovelController))]
 public class NovelView : MonoBehaviour
 {
+    [Header("Text Components:")]
     [SerializeField] protected Text nameText = default;
     [SerializeField] protected Text speachText = default;
     [SerializeField] protected Text firstChoiceText = default;
     [SerializeField] protected Text secondChoiceText = default;
     [SerializeField] protected Text thirdChoiceText = default;
+
+    [Space, Header("Image Components:")]
     [SerializeField] protected Image characterImage = default;
     [SerializeField] protected Image backgroundImage = default;
 
