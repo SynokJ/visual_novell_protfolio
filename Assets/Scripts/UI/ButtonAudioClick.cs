@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,7 @@ public class ButtonAudioClick : AbstractDataComponentLoader<AudioManagerControll
 
     protected virtual void OnCLick()
     {
+        if (audioManagerController.IsUnityNull() || audioId.IsUnityNull()) return;
         audioManagerController.PlayAudioById(audioId);
     }
 
