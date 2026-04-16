@@ -775,6 +775,7 @@ GameObject:
   - component: {fileID: 612668049}
   - component: {fileID: 612668048}
   - component: {fileID: 612668047}
+  - component: {fileID: 612668050}
   m_Layer: 5
   m_Name: 'Second Choice Button '
   m_TagString: Untagged
@@ -884,6 +885,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612668045}
   m_CullTransparentMesh: 1
+--- !u!114 &612668050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612668045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402c5c988a9bf2e4db8b91d202caf769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAudioClick
+  model: {fileID: 11400000, guid: 544a566d8a9848949847abb3e8976d22, type: 2}
+  audioId: {fileID: 11400000, guid: 7d966dfe042eaf545aa102886dc5fdb2, type: 2}
 --- !u!1 &639907944
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1009,7 @@ GameObject:
   - component: {fileID: 700651969}
   - component: {fileID: 700651968}
   - component: {fileID: 700651967}
+  - component: {fileID: 700651970}
   m_Layer: 5
   m_Name: Third Choice Button
   m_TagString: Untagged
@@ -1103,6 +1119,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700651965}
   m_CullTransparentMesh: 1
+--- !u!114 &700651970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700651965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402c5c988a9bf2e4db8b91d202caf769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAudioClick
+  model: {fileID: 11400000, guid: 544a566d8a9848949847abb3e8976d22, type: 2}
+  audioId: {fileID: 11400000, guid: 7d966dfe042eaf545aa102886dc5fdb2, type: 2}
 --- !u!1 &703263835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,6 +1976,7 @@ GameObject:
   - component: {fileID: 1655960332}
   - component: {fileID: 1655960331}
   - component: {fileID: 1655960330}
+  - component: {fileID: 1655960333}
   m_Layer: 5
   m_Name: First Choice Button
   m_TagString: Untagged
@@ -2055,6 +2086,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655960328}
   m_CullTransparentMesh: 1
+--- !u!114 &1655960333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655960328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402c5c988a9bf2e4db8b91d202caf769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAudioClick
+  model: {fileID: 11400000, guid: 544a566d8a9848949847abb3e8976d22, type: 2}
+  audioId: {fileID: 11400000, guid: 7d966dfe042eaf545aa102886dc5fdb2, type: 2}
 --- !u!1 &1708040379
 GameObject:
   m_ObjectHideFlags: 0

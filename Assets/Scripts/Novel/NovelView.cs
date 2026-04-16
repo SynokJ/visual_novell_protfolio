@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +25,8 @@ public class NovelView : MonoBehaviour
     [SerializeField] protected Button thirdChoiceButton = default;
 
     protected NovelController controller = default;
+    protected Coroutine nameCoroutine = default;
+    protected Coroutine speachCoroutine = default;
 
     protected virtual void OnEnable()
         => controller.OnModelActivated += OnModelActivate;
@@ -35,8 +39,13 @@ public class NovelView : MonoBehaviour
 
     private void OnModelActivate(AbstractNovelItemModel model)
     {
-        nameText.text = model.NameText;
-        speachText.text = model.SpeachText;
+        if (!nameCoroutine.IsUnityNull())
+            StopCoroutine(nameCoroutine);
+        nameCoroutine = StartCoroutine(SetTextWithDelay(nameText, model.NameText));
+
+        if (!speachCoroutine.IsUnityNull())
+            StopCoroutine(speachCoroutine);
+        speachCoroutine = StartCoroutine(SetTextWithDelay(speachText, model.SpeachText));
 
         SetChoiceVisibility(false);
         if (model is NovelItemChoiceableModel choiceableModel)
@@ -53,6 +62,19 @@ public class NovelView : MonoBehaviour
 
         backgroundImage.sprite = model.BackgroundSprite;
         backgroundImage.preserveAspect = true;
+    }
+
+    protected IEnumerator SetTextWithDelay(Text currentText, string textData)
+    {
+        string targetText = textData;
+        string tempText = default;
+
+        for (int i = 0; i < targetText.Length; i++)
+        {
+            tempText += targetText[i];
+            yield return new WaitForEndOfFrame();
+            currentText.text = tempText;
+        }
     }
 
     protected virtual void SetChoiceVisibility(bool status)
