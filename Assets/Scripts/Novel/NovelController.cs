@@ -8,24 +8,33 @@ public class NovelController : MonoBehaviour
 
     [SerializeField] protected NovelModel model = default;
 
-    protected Identifier lastSpeachId = default;
+    protected AbstractNovelItemModel lastSpeachModel = default;
 
-    private void Start()
+    protected virtual void Awake()
     {
-        lastSpeachId = model.NovelItemsParameter.FirstOrDefault().SpeachIdentifier;
+        model.Init();
+    }
+
+    protected virtual void Start()
+    {
+        lastSpeachModel = model.NovelItemsModel.FirstOrDefault();
         StepNovelProgression();
     }
 
     public virtual void StepNovelProgression()
     {
-        foreach (AbstractNovelItemModel tempItemParameter in model.NovelItemsParameter)
+        foreach (AbstractNovelItemModel tempItemModel in model.NovelItemsModel)
         {
-            if (tempItemParameter.SpeachIdentifier == lastSpeachId)
+            if (tempItemModel.Equals(lastSpeachModel))
             {
-                OnModelActivated(tempItemParameter);
-                lastSpeachId = tempItemParameter.TryGetProgressId(tempItemParameter);
+                OnModelActivated(tempItemModel);
+                lastSpeachModel = tempItemModel.TryGetProgressId(tempItemModel);
+                //Debug.Log($"<color=green>Speach is found {tempItemModel.NameText} => {tempItemModel.SpeachText} </color>");
                 break;
             }
+            //else
+            //    Debug.Log($"<color=red>Speach is found {tempItemModel.NameText} => {tempItemModel.SpeachText} </color>");
+
         }
     }
 }

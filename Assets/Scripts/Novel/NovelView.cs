@@ -16,6 +16,11 @@ public class NovelView : MonoBehaviour
     [SerializeField] protected Image characterImage = default;
     [SerializeField] protected Image backgroundImage = default;
 
+    [Space, Header("Choice Buttons:")]
+    [SerializeField] protected Button firstChoiceButton = default;
+    [SerializeField] protected Button secondChoiceButton = default;
+    [SerializeField] protected Button thirdChoiceButton = default;
+
     protected NovelController controller = default;
 
     protected virtual void OnEnable()
@@ -32,11 +37,23 @@ public class NovelView : MonoBehaviour
         nameText.text = model.NameText;
         speachText.text = model.SpeachText;
 
-        firstChoiceText.text = "default";
-        secondChoiceText.text = "default";
-        thirdChoiceText.text = "default";
+        SetChoiceVisibility(false);
+        if (model is NovelItemChoiceableModel choiceableModel)
+        {
+            firstChoiceText.text = choiceableModel.FirstChoiceText;
+            secondChoiceText.text = choiceableModel.SecondChoiceText;
+            thirdChoiceText.text = choiceableModel.ThirdChoiceText;
+            SetChoiceVisibility(true);
+        }
 
         characterImage.sprite = model.CharacterSprite;
         backgroundImage.sprite = model.BackgroundSprite;
+    }
+
+    protected virtual void SetChoiceVisibility(bool status)
+    {
+        firstChoiceButton.gameObject.SetActive(status);
+        secondChoiceButton.gameObject.SetActive(status);
+        thirdChoiceButton.gameObject.SetActive(status);
     }
 }

@@ -1,19 +1,28 @@
+using System.Linq;
 using UnityEngine;
 
 public abstract class AbstractNovelItemModel : ScriptableObject
 {
-    public string NameText => nameText;
-    public string SpeachText => speachText;
+    public string NameText => nameText.Trim();
+    public string SpeachText => speachText.Trim();
     public Sprite CharacterSprite => characterSprite;
     public Sprite BackgroundSprite => backgroundSprite;
-    public Identifier SpeachIdentifier => speachIdentifier;
-
 
     [SerializeField] protected string nameText = default;
     [SerializeField] protected string speachText = default;
     [SerializeField] protected Sprite characterSprite = default;
     [SerializeField] protected Sprite backgroundSprite = default;
-    [SerializeField] protected Identifier speachIdentifier = default;
 
-    public abstract Identifier TryGetProgressId(AbstractNovelItemModel model);
+    public abstract AbstractNovelItemModel TryGetProgressId(AbstractNovelItemModel model);
+
+    public override bool Equals(object other)
+    {
+        if (other is AbstractNovelItemModel novelModel)
+            return NameText.Equals(novelModel.NameText) && SpeachText.Equals(novelModel.SpeachText);
+        else
+            return false;
+    }
+
+    public override int GetHashCode()
+        => (NameText.Concat(SpeachText)).GetHashCode();
 }
