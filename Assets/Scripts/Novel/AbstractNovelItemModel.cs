@@ -13,7 +13,7 @@ public abstract class AbstractNovelItemModel : ScriptableObject
     [SerializeField] protected Sprite characterSprite = default;
     [SerializeField] protected Sprite backgroundSprite = default;
 
-    public abstract AbstractNovelItemModel TryGetProgressId(AbstractNovelItemModel model);
+    public abstract AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model);
 
     public override bool Equals(object other)
     {

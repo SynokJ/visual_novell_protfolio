@@ -20,6 +20,27 @@ public class NovelItemChoiceableModel : AbstractNovelItemModel
 
     protected AbstractNovelItemModel selectedChoiceModel = default;
 
-    public override AbstractNovelItemModel TryGetProgressId(AbstractNovelItemModel model)
+    public virtual void FirstChoiceSelect()
+    {
+        selectedChoiceModel = firstChoiceModel;
+        TryGetProgressModel(default);
+        Debug.Log("FirstChoiceSelect");
+    }
+
+    public virtual void SecondChoiceSelect()
+    {
+        selectedChoiceModel = secondChoiceModel;
+        TryGetProgressModel(default);
+        Debug.Log("SecondChoiceSelect");
+    }
+
+    public virtual void ThirdChoiceSelect()
+    {
+        selectedChoiceModel = thirdChoiceModel;
+        TryGetProgressModel(default);
+        Debug.Log("ThirdChoiceSelect");
+    }
+
+    public override AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model)
         => selectedChoiceModel.IsUnityNull() ? firstChoiceModel : selectedChoiceModel;
 }

@@ -6,6 +6,6 @@ public class NovelItemSimpleModel : AbstractNovelItemModel
     [Space, Header("Next Speach Model:")]
     [SerializeField] protected AbstractNovelItemModel nextModel = default;
 
-    public override AbstractNovelItemModel TryGetProgressId(AbstractNovelItemModel model)
+    public override AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model)
         => nextModel;
 }

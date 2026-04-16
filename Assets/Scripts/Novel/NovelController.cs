@@ -1,14 +1,22 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NovelController : MonoBehaviour
 {
     public event Action<AbstractNovelItemModel> OnModelActivated = delegate { };
 
     [SerializeField] protected NovelModel model = default;
+    [SerializeField] protected Button nextButton = default;
 
-    protected AbstractNovelItemModel lastSpeachModel = default;
+    [Space, Header("Choice Buttons:")]
+    [SerializeField] protected Button firstChoiceButton = default;
+    [SerializeField] protected Button secondChoiceButton = default;
+    [SerializeField] protected Button thirdChoiceButton = default;
+
+    protected AbstractNovelItemModel nextSpeachModel = default;
+    protected NovelItemChoiceableModel currentSpeachChoiceableModel = default;
 
     protected virtual void Awake()
     {
@@ -17,7 +25,7 @@ public class NovelController : MonoBehaviour
 
     protected virtual void Start()
     {
-        lastSpeachModel = model.NovelItemsModel.FirstOrDefault();
+        nextSpeachModel = model.NovelItemsModel.FirstOrDefault();
         StepNovelProgression();
     }
 
@@ -25,16 +33,55 @@ public class NovelController : MonoBehaviour
     {
         foreach (AbstractNovelItemModel tempItemModel in model.NovelItemsModel)
         {
-            if (tempItemModel.Equals(lastSpeachModel))
+            if (tempItemModel.Equals(nextSpeachModel))
             {
                 OnModelActivated(tempItemModel);
-                lastSpeachModel = tempItemModel.TryGetProgressId(tempItemModel);
-                //Debug.Log($"<color=green>Speach is found {tempItemModel.NameText} => {tempItemModel.SpeachText} </color>");
+
+                if (tempItemModel is NovelItemChoiceableModel choiceableModel)
+                {
+                    firstChoiceButton.onClick.AddListener(choiceableModel.FirstChoiceSelect);
+                    firstChoiceButton.onClick.AddListener(UpdateByChoice);
+
+                    secondChoiceButton.onClick.AddListener(choiceableModel.SecondChoiceSelect);
+                    secondChoiceButton.onClick.AddListener(UpdateByChoice);
+
+                    thirdChoiceButton.onClick.AddListener(choiceableModel.ThirdChoiceSelect);
+                    thirdChoiceButton.onClick.AddListener(UpdateByChoice);
+
+                    currentSpeachChoiceableModel = choiceableModel;
+                    Debug.Log($"{choiceableModel.NameText}:{choiceableModel.SpeachText}");
+                    Debug.Log("Game Item Choice");
+                    nextButton.gameObject.SetActive(false);
+                }
+                else
+                {
+                    firstChoiceButton.onClick.RemoveAllListeners();
+                    secondChoiceButton.onClick.RemoveAllListeners();
+                    thirdChoiceButton.onClick.RemoveAllListeners();
+                    nextButton.gameObject.SetActive(true);
+                    Switch(tempItemModel);
+                }
+
                 break;
             }
-            //else
-            //    Debug.Log($"<color=red>Speach is found {tempItemModel.NameText} => {tempItemModel.SpeachText} </color>");
-
         }
+    }
+
+    protected virtual void UpdateByChoice()
+    {
+        nextSpeachModel = currentSpeachChoiceableModel.TryGetProgressModel(default);
+        OnModelActivated(nextSpeachModel);
+
+        firstChoiceButton.onClick.RemoveAllListeners();
+        secondChoiceButton.onClick.RemoveAllListeners();
+        thirdChoiceButton.onClick.RemoveAllListeners();
+        nextButton.gameObject.SetActive(true);
+
+        Switch(currentSpeachChoiceableModel);
+    }
+
+    protected virtual void Switch(AbstractNovelItemModel tempItemModel)
+    {
+        nextSpeachModel = tempItemModel.TryGetProgressModel(tempItemModel);
     }
 }
