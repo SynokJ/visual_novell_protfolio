@@ -60,6 +60,9 @@ public class NovelView : MonoBehaviour
         characterImage.sprite = model.CharacterSprite;
         characterImage.preserveAspect = true;
 
+        if (characterImage.TryGetComponent(out Animator animator))
+            animator.SetTrigger(model?.CharacterAnimTrigger);
+
         backgroundImage.sprite = model.BackgroundSprite;
         backgroundImage.preserveAspect = true;
     }
