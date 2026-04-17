@@ -7,11 +7,15 @@ public abstract class AbstractNovelItemModel : ScriptableObject
     public string SpeachText => speachText.Trim();
     public Sprite CharacterSprite => characterSprite;
     public Sprite BackgroundSprite => backgroundSprite;
+    public string CharacterAnimTrigger => characterAnimTrigger.Trim();
 
     [SerializeField] protected string nameText = default;
     [SerializeField] protected string speachText = default;
     [SerializeField] protected Sprite characterSprite = default;
     [SerializeField] protected Sprite backgroundSprite = default;
+
+    [Space, Header("fromLeft")]
+    [SerializeField] protected string characterAnimTrigger = "fromLeft";
 
     public abstract AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model);
 
