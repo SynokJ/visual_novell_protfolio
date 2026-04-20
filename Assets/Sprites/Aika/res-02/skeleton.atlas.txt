@@ -1,0 +1,110 @@
+
+skeleton.png
+size: 1024,944
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Base_Character_Head
+  rotate: true
+  xy: 2, 812
+  size: 127, 138
+  orig: 360, 640
+  offset: 107, 451
+  index: -1
+Base_Character_Kare
+  rotate: true
+  xy: 296, 782
+  size: 157, 167
+  orig: 360, 640
+  offset: 104, 435
+  index: -1
+Base_Character_Kepka
+  rotate: true
+  xy: 2, 100
+  size: 242, 395
+  orig: 360, 640
+  offset: 105, 209
+  index: -1
+Base_Character_Long
+  rotate: true
+  xy: 2, 344
+  size: 214, 401
+  orig: 360, 640
+  offset: 70, 206
+  index: -1
+Base_Character_Macareno
+  rotate: false
+  xy: 757, 711
+  size: 263, 228
+  orig: 360, 640
+  offset: 54, 381
+  index: -1
+Base_Character_MotherDragon
+  rotate: true
+  xy: 345, 560
+  size: 205, 336
+  orig: 360, 640
+  offset: 72, 263
+  index: -1
+Base_Character_Red
+  rotate: false
+  xy: 2, 604
+  size: 341, 176
+  orig: 360, 640
+  offset: 17, 454
+  index: -1
+Base_Character_RightHand
+  rotate: true
+  xy: 465, 767
+  size: 172, 290
+  orig: 360, 640
+  offset: 28, 3
+  index: -1
+Base_Character_Short
+  rotate: true
+  xy: 142, 807
+  size: 132, 152
+  orig: 360, 640
+  offset: 109, 452
+  index: -1
+Base_Character_Style
+  rotate: false
+  xy: 683, 474
+  size: 238, 235
+  orig: 360, 640
+  offset: 72, 366
+  index: -1
+Base_Character_Tail
+  rotate: true
+  xy: 399, 2
+  size: 241, 595
+  orig: 360, 640
+  offset: 119, 1
+  index: -1
+Base_Character_leftHand
+  rotate: true
+  xy: 405, 245
+  size: 227, 407
+  orig: 360, 640
+  offset: 116, 3
+  index: -1
+
+skeleton2.png
+size: 612,536
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Base_Character_Etno
+  rotate: true
+  xy: 2, 282
+  size: 251, 608
+  orig: 360, 640
+  offset: 15, 17
+  index: -1
+Base_Character_Torso
+  rotate: true
+  xy: 2, 2
+  size: 278, 499
+  orig: 360, 640
+  offset: 51, 3
+  index: -1
