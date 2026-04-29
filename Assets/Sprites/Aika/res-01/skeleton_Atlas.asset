@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+  m_Name: skeleton_Atlas
+  m_EditorClassIdentifier: spine-unity::Spine.Unity.SpineAtlasAsset
+  atlasFile: {fileID: 4900000, guid: 435f337c53e293240920b01923905910, type: 3}
+  materials:
+  - {fileID: 2100000, guid: c0045882530e24c489056ffb85148f96, type: 2}
+  - {fileID: 2100000, guid: 0218db7a6eefdd145b3eff5f3e253a69, type: 2}
+  - {fileID: 2100000, guid: 058b267742cd99a428b75110b141d0e0, type: 2}
+  - {fileID: 2100000, guid: 45ac4f65ac9957c49887b93746928515, type: 2}
+  - {fileID: 2100000, guid: ab846413710ab104fa4f853bb008a73a, type: 2}
+  - {fileID: 2100000, guid: 0f8798e270483c8419eb9881b139dc27, type: 2}
+  - {fileID: 2100000, guid: 3ddb1daf211fc7c40b6c2f14176d8701, type: 2}
