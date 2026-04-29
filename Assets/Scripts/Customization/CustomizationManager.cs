@@ -96,13 +96,17 @@ public class CustomizationManager : MonoBehaviour
 
     public virtual void SetNextBody()
     {
-        currentBodyAttachmentId = Mathf.Clamp(currentBodyAttachmentId + 1, 0, bodyEntries.Count - 1);
+        currentBodyAttachmentId = currentBodyAttachmentId + 1;
+        if(currentBodyAttachmentId > bodyEntries.Count - 1)
+            currentBodyAttachmentId = 0;
         SetBody(bodyEntries[currentBodyAttachmentId].Name, BODY_SLOT);
     }
 
     public virtual void SetPreviousBody()
     {
-        currentBodyAttachmentId = Mathf.Clamp(currentBodyAttachmentId - 1, 0, bodyEntries.Count - 1);
+        currentBodyAttachmentId = currentBodyAttachmentId - 1;
+        if(currentBodyAttachmentId < 0)
+            currentBodyAttachmentId = bodyEntries.Count - 1;
         SetBody(bodyEntries[currentBodyAttachmentId].Name, BODY_SLOT);
     }
 
