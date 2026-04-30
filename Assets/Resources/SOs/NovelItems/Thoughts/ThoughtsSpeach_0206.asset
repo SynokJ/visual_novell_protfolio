@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13bab3967fce16c4a8010801fdd58d9d, type: 3}
-  m_Name: ThoughtsSpeach_0109
+  m_Name: ThoughtsSpeach_0206
   m_EditorClassIdentifier: Assembly-CSharp::NovelItemSimpleModel
   nameText: "\u0410\u0439\u043A\u0430:"
   speachText: "\u201C\u0414\u0432\u0435 \u0442\u044B\u0441\u044F\u0447\u0438 \u0441\u043E\u043C
