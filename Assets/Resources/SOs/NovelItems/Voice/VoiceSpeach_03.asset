@@ -17,4 +17,5 @@ MonoBehaviour:
     \u043D\u0430 \u043D\u0435\u0433\u043E."
   characterSprite: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: bf4040f48b03eaf4c940cdc3a990ba45, type: 3}
+  characterAnimTrigger: fromLeft
   nextModel: {fileID: 11400000, guid: 21fc326288ef88348b0788421c037007, type: 2}
