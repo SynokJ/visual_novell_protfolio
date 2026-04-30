@@ -9,6 +9,8 @@ public abstract class AbstractNovelItemModel : ScriptableObject
     public Sprite BackgroundSprite => backgroundSprite;
     public string CharacterAnimTrigger => characterAnimTrigger.Trim();
 
+    public Color EditorNodeColor => editorNodeColor;
+
     [SerializeField] protected string nameText = default;
     [SerializeField] protected string speachText = default;
     [SerializeField] protected Sprite characterSprite = default;
@@ -17,12 +19,15 @@ public abstract class AbstractNovelItemModel : ScriptableObject
     [Space, Header("fromLeft")]
     [SerializeField] protected string characterAnimTrigger = "fromLeft";
 
+    [Space, Header("Editor Settings")]
+    [SerializeField] protected Color editorNodeColor = new Color(0.22f, 0.22f, 0.22f, 1f);
+
     public abstract AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model);
 
     public override bool Equals(object other)
     {
         if (other is AbstractNovelItemModel novelModel)
-            return NameText.Equals(novelModel.NameText) && SpeachText.Equals(novelModel.SpeachText);
+            return this.name.Trim().Equals(novelModel.name.Trim());
         else
             return false;
     }

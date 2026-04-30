@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13bab3967fce16c4a8010801fdd58d9d, type: 3}
+  m_Name: ThoughtsSpeach_0320
+  m_EditorClassIdentifier: Assembly-CSharp::NovelItemSimpleModel
+  nameText: "\u0410\u0439\u043A\u0430:"
+  speachText: "\u201C\u041D\u043E \u0437\u0432\u0443\u0447\u0438\u0442 \u0445\u0443\u0436\u0435,
+    \u0447\u0435\u043C \u0435\u0441\u0442\u044C.\u201D"
+  characterSprite: {fileID: 21300000, guid: ea7bf05d8b0dc3a4a9cbc2558c6630e3, type: 3}
+  backgroundSprite: {fileID: -3423043350003973055, guid: cc5d0e24eb685bc47b8cef0b21da3341, type: 3}
+  characterAnimTrigger: fromLeft
+  editorNodeColor: {r: 0.282353, g: 0.8196079, b: 0.8000001, a: 1}
+  nextModel: {fileID: 11400000, guid: 4cf3ea48052154e46bfe9255ace217ec, type: 2}
