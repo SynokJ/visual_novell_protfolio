@@ -27,7 +27,7 @@ public abstract class AbstractNovelItemModel : ScriptableObject
     public override bool Equals(object other)
     {
         if (other is AbstractNovelItemModel novelModel)
-            return NameText.Equals(novelModel.NameText) && SpeachText.Equals(novelModel.SpeachText);
+            return this.name.Trim().Equals(novelModel.name.Trim());
         else
             return false;
     }

@@ -19,8 +19,8 @@ MonoBehaviour:
   characterAnimTrigger: fromLeft
   editorNodeColor: {r: 1, g: 0, b: 0, a: 1}
   firstChoiceModel: {fileID: 11400000, guid: b709e122c688ac247a25c440678f2529, type: 2}
-  secondChoiceModel: {fileID: 0}
-  thirdChoiceModel: {fileID: 0}
+  secondChoiceModel: {fileID: 11400000, guid: 92d1d4b15fec4e947a4107a29dbdfc27, type: 2}
+  thirdChoiceModel: {fileID: 11400000, guid: 23072a754bc0b7c4f986da66993bbe98, type: 2}
   firstChoiceText: "\u201C\u0423\u0431\u0435\u0440\u0438 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u201D"
   secondChoiceText: "\u0438\u0433\u043D\u043E\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
   thirdChoiceText: "\u201C\u0422\u044B \u0441\u0435\u0440\u044C\u0435\u0437\u043D\u043E?\u201D"

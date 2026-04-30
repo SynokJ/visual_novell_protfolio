@@ -18,9 +18,9 @@ MonoBehaviour:
   backgroundSprite: {fileID: -3423043350003973055, guid: cc5d0e24eb685bc47b8cef0b21da3341, type: 3}
   characterAnimTrigger: fromLeft
   editorNodeColor: {r: 1, g: 0, b: 0, a: 1}
-  firstChoiceModel: {fileID: 0}
-  secondChoiceModel: {fileID: 0}
-  thirdChoiceModel: {fileID: 0}
+  firstChoiceModel: {fileID: 11400000, guid: 5b02948e499fe3c4cb17b4c029367513, type: 2}
+  secondChoiceModel: {fileID: 11400000, guid: d06bf36f2c72b5f4ca4cfb3ee13a1f4d, type: 2}
+  thirdChoiceModel: {fileID: 11400000, guid: c020523d79c24014ea144016df97d64f, type: 2}
   firstChoiceText: "\u201C\u0414\u0430, \u0443\u043A\u0430\u0437\u044B\u0432\u0430\u044E.
     \u0423\u0431\u0435\u0440\u0438 \u0442\u0435\u043B\u0435\u0444\u043E\u043D \u0438
     \u043F\u0435\u0440\u0435\u0441\u0442\u0430\u043D\u044C \u0432\u0435\u0441\u0442\u0438
