@@ -17,4 +17,6 @@ MonoBehaviour:
     \u0440\u0443\u043A\u0443 \u0438 \u043E\u0442\u0432\u0435\u0447\u0430\u0435\u0442."
   characterSprite: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: bf4040f48b03eaf4c940cdc3a990ba45, type: 3}
+  characterAnimTrigger: fromLeft
+  editorNodeColor: {r: 1, g: 0.4117647, b: 0.7058824, a: 1}
   nextModel: {fileID: 11400000, guid: 9f99546e45fa8d243a9c25db8a28e0e7, type: 2}

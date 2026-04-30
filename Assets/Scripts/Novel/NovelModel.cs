@@ -30,8 +30,8 @@ public class NovelModel : ScriptableObject
             AbstractNovelItemModel[] typedItems = Resources.LoadAll<AbstractNovelItemModel>(path);
             loadedItems.AddRange(typedItems);
 
-            //if (tempSub.Equals(SUBJECTS[4]))
-            //    Debug.Log($"<color=orange>{tempSub} => {typedItems.Count()} => {typedItems[0].NameText}|{typedItems[0].SpeachText}</color>");
+            if (tempSub.Equals(SUBJECTS[^1]))
+                Debug.Log($"<color=orange>{tempSub} => {typedItems.Count()} => {typedItems[0].NameText}|{typedItems[0].SpeachText}</color>");
         }
 
         novelItemsModel = loadedItems.ToArray();

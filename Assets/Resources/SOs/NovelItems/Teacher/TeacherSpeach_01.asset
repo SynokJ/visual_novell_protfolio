@@ -16,4 +16,6 @@ MonoBehaviour:
   speachText: "\u201CExactly. That\u2019s the level I expect.\u201D"
   characterSprite: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: bf4040f48b03eaf4c940cdc3a990ba45, type: 3}
+  characterAnimTrigger: fromLeft
+  editorNodeColor: {r: 1, g: 1, b: 1, a: 1}
   nextModel: {fileID: 11400000, guid: dddc089e05fea1a48871c161ef7cd356, type: 2}

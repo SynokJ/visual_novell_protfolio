@@ -13,6 +13,8 @@ public class NovelNodeView : Node
 
         title = model.name;
 
+        ApplyNodeColor(model.EditorNodeColor);
+
         CreateInputPort();
         CreateMainInfo();
 
@@ -29,6 +31,40 @@ public class NovelNodeView : Node
 
         RefreshExpandedState();
         RefreshPorts();
+    }
+
+    private void ApplyNodeColor(Color color)
+    {
+        titleContainer.style.backgroundColor = color;
+
+        style.borderTopColor = color;
+        style.borderBottomColor = color;
+        style.borderLeftColor = color;
+        style.borderRightColor = color;
+
+        style.borderTopWidth = 2;
+        style.borderBottomWidth = 2;
+        style.borderLeftWidth = 2;
+        style.borderRightWidth = 2;
+
+        Color textColor = GetReadableTextColor(color);
+
+        Label titleLabel = titleContainer.Q<Label>();
+        if (titleLabel != null)
+        {
+            titleLabel.style.color = textColor;
+            titleLabel.style.unityFontStyleAndWeight = FontStyle.Bold;
+        }
+    }
+
+    private Color GetReadableTextColor(Color backgroundColor)
+    {
+        float brightness =
+            backgroundColor.r * 0.299f +
+            backgroundColor.g * 0.587f +
+            backgroundColor.b * 0.114f;
+
+        return brightness > 0.55f ? Color.black : Color.white;
     }
 
     private void CreateInputPort()
