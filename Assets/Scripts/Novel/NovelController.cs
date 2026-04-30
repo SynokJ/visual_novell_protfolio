@@ -49,8 +49,6 @@ public class NovelController : MonoBehaviour
                     thirdChoiceButton.onClick.AddListener(UpdateByChoice);
 
                     currentSpeachChoiceableModel = choiceableModel;
-                    Debug.Log($"{choiceableModel.NameText}:{choiceableModel.SpeachText}");
-                    Debug.Log("Game Item Choice");
                     nextButton.gameObject.SetActive(false);
                 }
                 else
