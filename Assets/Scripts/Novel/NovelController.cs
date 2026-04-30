@@ -75,7 +75,7 @@ public class NovelController : MonoBehaviour
         thirdChoiceButton.onClick.RemoveAllListeners();
         nextButton.gameObject.SetActive(true);
 
-        Switch(currentSpeachChoiceableModel);
+        Switch(nextSpeachModel);
     }
 
     protected virtual void Switch(AbstractNovelItemModel tempItemModel)

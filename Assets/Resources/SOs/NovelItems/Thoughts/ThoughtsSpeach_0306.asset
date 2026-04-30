@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13bab3967fce16c4a8010801fdd58d9d, type: 3}
-  m_Name: ThoughtsSpeach_0209
+  m_Name: ThoughtsSpeach_0306
   m_EditorClassIdentifier: Assembly-CSharp::NovelItemSimpleModel
-  nameText: "\u0410\u0439\u043A\u0430 (\u0432\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0435):"
-  speachText: "\u201C\u0422\u0443\u0442 \u0434\u0435\u043B\u043E \u043D\u0435 \u0442\u043E\u043B\u044C\u043A\u043E
-    \u0432 \u0443\u0447\u0435\u0431\u0435\u201D"
+  nameText: "\u0410\u0439\u043A\u0430:"
+  speachText: " \u2014 \u041D\u0435 \u043E\u0431\u043E\u043B\u044C\u0449\u0430\u0439\u0441\u044F.
+    \u042F \u0434\u0435\u043B\u0430\u044E \u043A\u043E\u043D\u0441\u043F\u0435\u043A\u0442
+    \u043A \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439 \u043F\u0430\u0440\u0435."
   characterSprite: {fileID: 21300000, guid: ea7bf05d8b0dc3a4a9cbc2558c6630e3, type: 3}
-  backgroundSprite: {fileID: 21300000, guid: 0cc680a868568754c9348b6e67fbd022, type: 3}
+  backgroundSprite: {fileID: -3423043350003973055, guid: cc5d0e24eb685bc47b8cef0b21da3341, type: 3}
   characterAnimTrigger: fromLeft
   editorNodeColor: {r: 0.282353, g: 0.8196079, b: 0.8000001, a: 1}
-  nextModel: {fileID: 11400000, guid: bbc209feba3841e4a8208b2893f6705c, type: 2}
+  nextModel: {fileID: 11400000, guid: b4fef45fbdd44124eb83ab382c3ec3ca, type: 2}

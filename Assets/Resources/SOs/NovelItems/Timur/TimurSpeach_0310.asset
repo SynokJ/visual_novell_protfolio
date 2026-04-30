@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13bab3967fce16c4a8010801fdd58d9d, type: 3}
-  m_Name: TimurSpeach_0208
+  m_Name: TimurSpeach_0310
   m_EditorClassIdentifier: Assembly-CSharp::NovelItemSimpleModel
-  nameText: "\u0422\u0438\u043C\u0443\u0440 (\u0443\u0441\u043C\u0435\u0445\u0430\u0435\u0442\u0441\u044F):"
-  speachText: "\u2014 \u0422\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0442\u043E\u043C
-    \u043D\u0435 \u0436\u0430\u043B\u0443\u0439\u0441\u044F, \u0447\u0442\u043E \u0441\u0432\u044F\u0437\u0430\u043B\u0430\u0441\u044C
-    \u0441\u043E \u043C\u043D\u043E\u0439"
+  nameText: ...
+  speachText: "\u0422\u0438\u043C\u0443\u0440 \u043A\u0438\u0432\u0430\u0435\u0442"
   characterSprite: {fileID: 21300000, guid: bcd3b51c76f383d48bf175fdaae2347e, type: 3}
-  backgroundSprite: {fileID: 21300000, guid: 0cc680a868568754c9348b6e67fbd022, type: 3}
+  backgroundSprite: {fileID: -3423043350003973055, guid: cc5d0e24eb685bc47b8cef0b21da3341, type: 3}
   characterAnimTrigger: fromLeft
   editorNodeColor: {r: 0, g: 0, b: 0, a: 1}
-  nextModel: {fileID: 11400000, guid: bbc209feba3841e4a8208b2893f6705c, type: 2}
+  nextModel: {fileID: 11400000, guid: b6601136a23071f44ab71d1988d0c0af, type: 2}
