@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bab3967fce16c4a8010801fdd58d9d, type: 3}
   m_Name: VoiceSpeach_0105
   m_EditorClassIdentifier: Assembly-CSharp::NovelItemSimpleModel
+  editorNodeColor: {r: 1, g: 0.4117647, b: 0.7058824, a: 1}
   nameText: ...
   speachText: "\u041E\u043D \u043B\u043E\u0432\u0438\u0442 \u0432\u0437\u0433\u043B\u044F\u0434
     \u0410\u0439\u043A\u0438."
   characterSprite: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: bf4040f48b03eaf4c940cdc3a990ba45, type: 3}
   characterAnimTrigger: fromLeft
-  editorNodeColor: {r: 1, g: 0.4117647, b: 0.7058824, a: 1}
-  nextModel: {fileID: 11400000, guid: 10110757962f64b47b5c24220831a835, type: 2}
+  chapterTransitionModel: {fileID: 11400000, guid: 98468270a6b612a40bc392a7895f141e, type: 2}
+  nextModel: {fileID: 0}

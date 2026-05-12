@@ -2,10 +2,11 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class NovelNodeView : Node
+public class NovelNodeView : NovelBaseNodeView
 {
     public AbstractNovelItemModel Model { get; private set; }
-    public Port InputPort { get; private set; }
+
+    public override AbstractNovelGraphNodeModel GraphModel => Model;
 
     public NovelNodeView(AbstractNovelItemModel model)
     {
@@ -21,6 +22,7 @@ public class NovelNodeView : Node
         if (model is NovelItemSimpleModel)
         {
             CreateOutputPort("Next", "nextModel");
+            CreateOutputPort("Transition", "chapterTransitionModel");
         }
         else if (model is NovelItemChoiceableModel choiceableModel)
         {
@@ -112,7 +114,7 @@ public class NovelNodeView : Node
         mainContainer.Add(typeLabel);
     }
 
-    public Port GetOutputPort(string fieldName)
+    public override Port GetOutputPort(string fieldName)
     {
         foreach (VisualElement child in outputContainer.Children())
         {

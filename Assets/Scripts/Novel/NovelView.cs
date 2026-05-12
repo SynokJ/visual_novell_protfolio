@@ -24,21 +24,47 @@ public class NovelView : MonoBehaviour
     [SerializeField] protected Button secondChoiceButton = default;
     [SerializeField] protected Button thirdChoiceButton = default;
 
+    [Space, Header("Choice Buttons:")]
+    [SerializeField] protected Image transitionBackground = default;
+    [SerializeField] protected Text transitionText = default;
+
     protected NovelController controller = default;
     protected Coroutine nameCoroutine = default;
     protected Coroutine speachCoroutine = default;
 
     protected virtual void OnEnable()
-        => controller.OnModelActivated += OnModelActivate;
+    {
+        controller.OnModelActivated += OnModelActivate;
+        controller.OnTransitionActivated += OnTransitionActivated;
+    }
+
 
     protected virtual void OnDisable()
-        => controller.OnModelActivated -= OnModelActivate;
+    {
+        controller.OnModelActivated -= OnModelActivate;
+        controller.OnTransitionActivated -= OnTransitionActivated;
+    }
 
     protected virtual void Awake()
         => controller = GetComponent<NovelController>();
 
-    private void OnModelActivate(AbstractNovelItemModel model)
+    private void OnTransitionActivated(NovelChapterTransitionModel model)
     {
+        transitionBackground.enabled = true;
+        transitionBackground.gameObject.SetActive(true);
+
+        transitionText.enabled = true;
+        transitionText.text = model.ChapterTitle;
+        StartCoroutine(SetTextWithDelay(transitionText, model.ChapterTitle));
+    }
+
+    private void OnModelActivate(AbstractNovelGraphNodeModel otherModel)
+    {
+        transitionBackground.enabled = false;
+        transitionText.enabled = false;
+
+        if (otherModel is not AbstractNovelItemModel model) return;
+
         if (!nameCoroutine.IsUnityNull())
             StopCoroutine(nameCoroutine);
         nameCoroutine = StartCoroutine(SetTextWithDelay(nameText, model.NameText));

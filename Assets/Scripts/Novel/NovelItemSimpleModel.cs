@@ -4,8 +4,8 @@ using UnityEngine;
 public class NovelItemSimpleModel : AbstractNovelItemModel
 {
     [Space, Header("Next Speach Model:")]
-    [SerializeField] protected AbstractNovelItemModel nextModel = default;
+    [SerializeField] protected AbstractNovelGraphNodeModel nextModel = default;
 
-    public override AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model)
+    public override AbstractNovelGraphNodeModel TryGetProgressModel(AbstractNovelGraphNodeModel model)
         => nextModel;
 }
