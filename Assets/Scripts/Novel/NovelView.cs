@@ -18,6 +18,9 @@ public class NovelView : MonoBehaviour
     [Space, Header("Image Components:")]
     [SerializeField] protected Image characterImage = default;
     [SerializeField] protected Image backgroundImage = default;
+    [SerializeField] protected Image firstChoiceImage = default;
+    [SerializeField] protected Image secondChoiceImage = default;
+    [SerializeField] protected Image thirdChoiceImage = default;
 
     [Space, Header("Choice Buttons:")]
     [SerializeField] protected Button firstChoiceButton = default;
@@ -44,7 +47,6 @@ public class NovelView : MonoBehaviour
         controller.OnModelActivated += OnModelActivate;
         controller.OnTransitionActivated += OnTransitionActivated;
     }
-
 
     protected virtual void OnDisable()
     {
@@ -79,6 +81,10 @@ public class NovelView : MonoBehaviour
 
         transitionText.text = "";
         transitionTextCoroutine = StartCoroutine(SetTextWithDelay(transitionText, model.ChapterTitle));
+
+        firstChoiceImage.raycastTarget = false;
+        secondChoiceImage.raycastTarget = false;
+        thirdChoiceImage.raycastTarget = false;
 
         isTransitioning = true;
     }
@@ -135,6 +141,10 @@ public class NovelView : MonoBehaviour
 
         if (characterImage.TryGetComponent(out Animator animator))
             animator.SetTrigger(model?.CharacterAnimTrigger);
+
+        firstChoiceImage.raycastTarget = true;
+        secondChoiceImage.raycastTarget = true;
+        thirdChoiceImage.raycastTarget = true;
 
         backgroundImage.sprite = model.BackgroundSprite;
         backgroundImage.preserveAspect = true;
