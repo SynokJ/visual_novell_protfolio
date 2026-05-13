@@ -24,9 +24,12 @@ public class NovelView : MonoBehaviour
     [SerializeField] protected Button secondChoiceButton = default;
     [SerializeField] protected Button thirdChoiceButton = default;
 
-    [Space, Header("Choice Buttons:")]
+    [Space, Header("Transition Components:")]
     [SerializeField] protected Image transitionBackground = default;
     [SerializeField] protected Text transitionText = default;
+
+    [Space, Header("Customization Components:")]
+    [SerializeField] protected RawImage customableCharactreImage = default;
 
     protected NovelController controller = default;
     protected Coroutine nameCoroutine = default;
@@ -115,9 +118,20 @@ public class NovelView : MonoBehaviour
             SetChoiceVisibility(true);
         }
 
-        characterImage.enabled = !model.CharacterSprite.IsUnityNull();
-        characterImage.sprite = model.CharacterSprite;
-        characterImage.preserveAspect = true;
+        if (model.CharacterSprite != null && !model.CharacterSprite.name.ToLower().Trim().Equals("Aika".ToLower().Trim()))
+        {
+            characterImage.enabled = !model.CharacterSprite.IsUnityNull();
+            characterImage.sprite = model.CharacterSprite;
+            characterImage.preserveAspect = true;
+            customableCharactreImage.enabled = false;
+        }
+        else
+        {
+            characterImage.enabled = false;
+
+            customableCharactreImage.enabled = true;
+            customableCharactreImage.gameObject.SetActive(!model.CharacterSprite.IsUnityNull());
+        }
 
         if (characterImage.TryGetComponent(out Animator animator))
             animator.SetTrigger(model?.CharacterAnimTrigger);

@@ -1,7 +1,7 @@
 using Spine;
 using Spine.Unity;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class CustomizationManager : MonoBehaviour
 {
@@ -24,6 +24,8 @@ public class CustomizationManager : MonoBehaviour
         InitSlotData(HAIR_SLOT_F, ref headEntriesFront);
         InitSlotData(HAIR_SLOT_B, ref headEntriesBack);
         InitSlotData(BODY_SLOT, ref bodyEntries);
+
+        LoadSavedCustomization();
     }
 
     private void Update()
@@ -53,27 +55,31 @@ public class CustomizationManager : MonoBehaviour
     public virtual void SetNextHead()
     {
         currentHairFrontAttachmentId = currentHairFrontAttachmentId + 1;
-        if(currentHairFrontAttachmentId >= headEntriesFront.Count)
+        if (currentHairFrontAttachmentId >= headEntriesFront.Count)
             currentHairFrontAttachmentId = 0;
         SetHead(headEntriesFront[currentHairFrontAttachmentId].Name, HAIR_SLOT_F);
 
         currentHairBackAttachmentId = currentHairBackAttachmentId + 1;
-        if(currentHairBackAttachmentId >= headEntriesBack.Count)
+        if (currentHairBackAttachmentId >= headEntriesBack.Count)
             currentHairBackAttachmentId = 0;
         SetHead(headEntriesBack[currentHairBackAttachmentId].Name, HAIR_SLOT_B);
+
+        SaveCurrentCustomization();
     }
 
     public virtual void SetPreviousHead()
     {
         currentHairFrontAttachmentId = currentHairFrontAttachmentId - 1;
-        if(currentHairFrontAttachmentId < 0)
+        if (currentHairFrontAttachmentId < 0)
             currentHairFrontAttachmentId = headEntriesFront.Count - 1;
         SetHead(headEntriesFront[currentHairFrontAttachmentId].Name, HAIR_SLOT_F);
 
         currentHairBackAttachmentId = currentHairBackAttachmentId - 1;
-        if(currentHairBackAttachmentId < 0)
+        if (currentHairBackAttachmentId < 0)
             currentHairBackAttachmentId = headEntriesBack.Count - 1;
         SetHead(headEntriesBack[currentHairBackAttachmentId].Name, HAIR_SLOT_B);
+
+        SaveCurrentCustomization();
     }
 
     public void SetHead(string attachmentName, string slotName)
@@ -97,17 +103,23 @@ public class CustomizationManager : MonoBehaviour
     public virtual void SetNextBody()
     {
         currentBodyAttachmentId = currentBodyAttachmentId + 1;
-        if(currentBodyAttachmentId > bodyEntries.Count - 1)
+        if (currentBodyAttachmentId > bodyEntries.Count - 1)
             currentBodyAttachmentId = 0;
+
         SetBody(bodyEntries[currentBodyAttachmentId].Name, BODY_SLOT);
+
+        SaveCurrentCustomization();
     }
 
     public virtual void SetPreviousBody()
     {
         currentBodyAttachmentId = currentBodyAttachmentId - 1;
-        if(currentBodyAttachmentId < 0)
+        if (currentBodyAttachmentId < 0)
             currentBodyAttachmentId = bodyEntries.Count - 1;
+
         SetBody(bodyEntries[currentBodyAttachmentId].Name, BODY_SLOT);
+
+        SaveCurrentCustomization();
     }
 
     public void SetBody(string attachmentName, string slotName)
@@ -117,5 +129,91 @@ public class CustomizationManager : MonoBehaviour
 
         skeletonAnimation.AnimationState.Apply(skeleton);
         skeletonAnimation.LateUpdate();
+    }
+
+    public void SaveCurrentCustomization()
+    {
+        if (headEntriesFront.Count == 0 || headEntriesBack.Count == 0 || bodyEntries.Count == 0)
+        {
+            Debug.LogWarning("[CustomizationManager] Cannot save customization: one or more entry lists are empty.");
+            return;
+        }
+
+        var saveData = new CustomizationSaveData(
+            headEntriesFront[currentHairFrontAttachmentId].Name,
+            headEntriesBack[currentHairBackAttachmentId].Name,
+            bodyEntries[currentBodyAttachmentId].Name
+        );
+
+        CustomizationSaveSystem.Save(saveData);
+    }
+
+    public void LoadSavedCustomization()
+    {
+        if (!CustomizationSaveSystem.TryLoad(out CustomizationSaveData saveData))
+            return;
+
+        ApplySavedHead(
+            saveData.hairFrontAttachmentName,
+            headEntriesFront,
+            ref currentHairFrontAttachmentId,
+            HAIR_SLOT_F
+        );
+
+        ApplySavedHead(
+            saveData.hairBackAttachmentName,
+            headEntriesBack,
+            ref currentHairBackAttachmentId,
+            HAIR_SLOT_B
+        );
+
+        ApplySavedBody(
+            saveData.bodyAttachmentName,
+            bodyEntries,
+            ref currentBodyAttachmentId,
+            BODY_SLOT
+        );
+    }
+
+    private void ApplySavedHead(
+        string savedAttachmentName,
+        List<Skin.SkinEntry> entries,
+        ref int currentId,
+        string slotName)
+    {
+        if (string.IsNullOrEmpty(savedAttachmentName))
+            return;
+
+        int index = entries.FindIndex(entry => entry.Name == savedAttachmentName);
+
+        if (index < 0)
+        {
+            Debug.LogWarning($"[CustomizationManager] Saved head attachment not found: {savedAttachmentName}");
+            return;
+        }
+
+        currentId = index;
+        SetHead(savedAttachmentName, slotName);
+    }
+
+    private void ApplySavedBody(
+        string savedAttachmentName,
+        List<Skin.SkinEntry> entries,
+        ref int currentId,
+        string slotName)
+    {
+        if (string.IsNullOrEmpty(savedAttachmentName))
+            return;
+
+        int index = entries.FindIndex(entry => entry.Name == savedAttachmentName);
+
+        if (index < 0)
+        {
+            Debug.LogWarning($"[CustomizationManager] Saved body attachment not found: {savedAttachmentName}");
+            return;
+        }
+
+        currentId = index;
+        SetBody(savedAttachmentName, slotName);
     }
 }
