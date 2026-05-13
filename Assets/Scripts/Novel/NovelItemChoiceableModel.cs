@@ -9,16 +9,16 @@ public class NovelItemChoiceableModel : AbstractNovelItemModel
     public string ThirdChoiceText => thirdChoiceText;
 
     [Header("Choice Data Ids:")]
-    [SerializeField] protected AbstractNovelItemModel firstChoiceModel = default;
-    [SerializeField] protected AbstractNovelItemModel secondChoiceModel = default;
-    [SerializeField] protected AbstractNovelItemModel thirdChoiceModel = default;
+    [SerializeField] protected AbstractNovelGraphNodeModel firstChoiceModel = default;
+    [SerializeField] protected AbstractNovelGraphNodeModel secondChoiceModel = default;
+    [SerializeField] protected AbstractNovelGraphNodeModel thirdChoiceModel = default;
 
     [Space, Header("Choice Text Data")]
     [SerializeField] protected string firstChoiceText = default;
     [SerializeField] protected string secondChoiceText = default;
     [SerializeField] protected string thirdChoiceText = default;
 
-    protected AbstractNovelItemModel selectedChoiceModel = default;
+    protected AbstractNovelGraphNodeModel selectedChoiceModel = default;
 
     public virtual void FirstChoiceSelect()
     {
@@ -41,6 +41,6 @@ public class NovelItemChoiceableModel : AbstractNovelItemModel
         Debug.Log("ThirdChoiceSelect");
     }
 
-    public override AbstractNovelItemModel TryGetProgressModel(AbstractNovelItemModel model)
+    public override AbstractNovelGraphNodeModel TryGetProgressModel(AbstractNovelGraphNodeModel model)
         => selectedChoiceModel.IsUnityNull() ? firstChoiceModel : selectedChoiceModel;
 }
