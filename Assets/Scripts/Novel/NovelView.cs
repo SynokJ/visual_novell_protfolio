@@ -31,6 +31,10 @@ public class NovelView : MonoBehaviour
     protected NovelController controller = default;
     protected Coroutine nameCoroutine = default;
     protected Coroutine speachCoroutine = default;
+    protected bool isTransitioning = false;
+
+    private Coroutine transitionFadeCoroutine;
+    private Coroutine transitionTextCoroutine;
 
     protected virtual void OnEnable()
     {
@@ -50,18 +54,47 @@ public class NovelView : MonoBehaviour
 
     private void OnTransitionActivated(NovelChapterTransitionModel model)
     {
-        transitionBackground.enabled = true;
-        transitionBackground.gameObject.SetActive(true);
+        if (transitionFadeCoroutine != null)
+        {
+            StopCoroutine(transitionFadeCoroutine);
+            transitionFadeCoroutine = null;
+        }
 
+        if (transitionTextCoroutine != null)
+        {
+            StopCoroutine(transitionTextCoroutine);
+            transitionTextCoroutine = null;
+        }
+
+        transitionBackground.gameObject.SetActive(true);
+        transitionBackground.enabled = true;
+
+        transitionText.gameObject.SetActive(true);
         transitionText.enabled = true;
-        transitionText.text = model.ChapterTitle;
-        StartCoroutine(SetTextWithDelay(transitionText, model.ChapterTitle));
+
+        SetTransitionAlpha(1f);
+
+        transitionText.text = "";
+        transitionTextCoroutine = StartCoroutine(SetTextWithDelay(transitionText, model.ChapterTitle));
+
+        isTransitioning = true;
     }
 
     private void OnModelActivate(AbstractNovelGraphNodeModel otherModel)
     {
-        transitionBackground.enabled = false;
-        transitionText.enabled = false;
+        if (!isTransitioning)
+        {
+            transitionBackground.enabled = false;
+            transitionText.enabled = false;
+        }
+        else
+        {
+            if (transitionFadeCoroutine != null)
+                StopCoroutine(transitionFadeCoroutine);
+
+            transitionFadeCoroutine = StartCoroutine(SetVisibilityStatusWithDelay());
+            isTransitioning = false;
+        }
 
         if (otherModel is not AbstractNovelItemModel model) return;
 
@@ -104,6 +137,40 @@ public class NovelView : MonoBehaviour
             yield return new WaitForEndOfFrame();
             currentText.text = tempText;
         }
+    }
+
+    protected IEnumerator SetVisibilityStatusWithDelay(bool status = false)
+    {
+        SetTransitionAlpha(1f);
+
+        float duration = 0.6f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
+            SetTransitionAlpha(alpha);
+            yield return null;
+        }
+
+        SetTransitionAlpha(0f);
+
+        transitionBackground.enabled = status;
+        transitionText.enabled = status;
+
+        transitionFadeCoroutine = null;
+    }
+
+    private void SetTransitionAlpha(float alpha)
+    {
+        Color bgColor = transitionBackground.color;
+        bgColor.a = alpha;
+        transitionBackground.color = bgColor;
+
+        Color textColor = transitionText.color;
+        textColor.a = alpha;
+        transitionText.color = textColor;
     }
 
     protected virtual void SetChoiceVisibility(bool status)

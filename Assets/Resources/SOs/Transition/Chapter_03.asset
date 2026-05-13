@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChapterTransitionModel
   editorNodeColor: {r: 0.2941177, g: 0, b: 0.509804, a: 1}
   chapterTitle: '#3 Library'
-  startNovelModel: {fileID: 11400000, guid: 10110757962f64b47b5c24220831a835, type: 2}
+  startNovelModel: {fileID: 11400000, guid: bbc209feba3841e4a8208b2893f6705c, type: 2}
