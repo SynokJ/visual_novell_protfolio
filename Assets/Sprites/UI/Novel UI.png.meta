@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: c1f1259ede13015488b408499834da9a
-AssetOrigin:
-  serializedVersion: 1
-  productId: 312875
-  packageName: Dialofy - Easy Dialogue System
-  packageVersion: 1.0.0
-  assetPath: Assets/Marav Assets/Dialogue System/Defaul UI/panel.png
-  uploadId: 756265
+guid: 4b49cbffc2e14fa4e8fdf679d9d16052
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5993112012373322873
-    second: panel_0
+      213: -8418020975692009542
+    second: Novel UI_0
+  - first:
+      213: 3674946518042657512
+    second: Novel UI_1
+  - first:
+      213: 382718341828486380
+    second: Novel UI_2
+  - first:
+      213: 3273124677852779075
+    second: Novel UI_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -79,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -91,7 +93,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -117,8 +119,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 512
+    buildTarget: Standalone
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -131,7 +133,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -144,7 +146,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WindowsStoreApps
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -159,23 +161,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: panel_0
+      name: Novel UI_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 513
-        height: 512
+        x: 522
+        y: 462
+        width: 309
+        height: 87
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 135, y: 139, z: 135, w: 135}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7839c5ba06034dca0800000000000000
-      internalID: -5993112012373322873
+      spriteID: abf2710f58e2d2b80800000000000000
+      internalID: -8418020975692009542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Novel UI_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 356
+        width: 554
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2cd703368000330800000000000000
+      internalID: 3674946518042657512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Novel UI_2
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 379
+        width: 240
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4a6bddd40bf4500800000000000000
+      internalID: 382718341828486380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Novel UI_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 823
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 342daf08d897c6d20800000000000000
+      internalID: 3273124677852779075
       vertices: []
       indices: 
       edges: []
@@ -184,7 +252,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 95111a273de6b03499aac13873a8ff61
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -194,7 +262,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      panel_0: -5993112012373322873
+      Novel UI_0: -8418020975692009542
+      Novel UI_1: 3674946518042657512
+      Novel UI_2: 382718341828486380
+      Novel UI_3: 3273124677852779075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
