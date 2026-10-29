@@ -19,3 +19,4 @@ MonoBehaviour:
   characterAnimTrigger: fromLeft
   editorNodeColor: {r: 0, g: 0, b: 0, a: 1}
   nextModel: {fileID: 0}
+  chapterTransitionModel: {fileID: 11400000, guid: 5eb7d6f943e242118edd7f39895baae7, type: 2}

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1e7a3b9d2f4e6a8b0c1d2e3f405162, type: 3}
+  m_Name: Gate_0401
+  m_EditorClassIdentifier: Assembly-CSharp::NovelInterestBranchModel
+  editorNodeColor: {r: 0.22, g: 0.22, b: 0.22, a: 1}
+  threshold: 2
+  atOrAboveModel: {fileID: 11400000, guid: 4ab666a5a70743389363006440c3c271, type: 2}
+  belowModel: {fileID: 11400000, guid: b743d8ee0cf84567b97abac5056e0ae3, type: 2}

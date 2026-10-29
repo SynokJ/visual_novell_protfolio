@@ -54,6 +54,11 @@ public class NovelController : MonoBehaviour
             return;
         }
 
+        while (nextSpeachModel is NovelInterestBranchModel branchModel)
+        {
+            nextSpeachModel = branchModel.Resolve(Interest);
+        }
+
         if (nextSpeachModel is NovelChapterTransitionModel transitionModel)
         {
             ActivateTransition(transitionModel);
