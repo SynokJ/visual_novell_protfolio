@@ -18,32 +18,43 @@ public class NovelItemChoiceableModel : AbstractNovelItemModel
     [SerializeField] protected string secondChoiceText = default;
     [SerializeField] protected string thirdChoiceText = default;
 
+    [Space, Header("Interest Change (Timur):")]
+    [SerializeField] protected int firstChoiceInterest = default;
+    [SerializeField] protected int secondChoiceInterest = default;
+    [SerializeField] protected int thirdChoiceInterest = default;
+
+    // Interest change of the picked choice, 0 when nothing is picked.
+    public int SelectedInterestChange => selectedInterestChange;
+
     // Runtime-only state: ScriptableObject fields persist between play sessions in the editor,
     // so the selection must be cleared once consumed (see ResetSelection).
     protected AbstractNovelGraphNodeModel selectedChoiceModel = default;
+    protected int selectedInterestChange;
     protected bool hasSelection;
 
     public virtual void FirstChoiceSelect()
-        => Select(firstChoiceModel);
+        => Select(firstChoiceModel, firstChoiceInterest);
 
     public virtual void SecondChoiceSelect()
-        => Select(secondChoiceModel);
+        => Select(secondChoiceModel, secondChoiceInterest);
 
     public virtual void ThirdChoiceSelect()
-        => Select(thirdChoiceModel);
+        => Select(thirdChoiceModel, thirdChoiceInterest);
 
     public virtual void ResetSelection()
     {
         selectedChoiceModel = null;
+        selectedInterestChange = 0;
         hasSelection = false;
     }
 
     public override AbstractNovelGraphNodeModel TryGetProgressModel(AbstractNovelGraphNodeModel model)
         => hasSelection ? selectedChoiceModel : firstChoiceModel;
 
-    private void Select(AbstractNovelGraphNodeModel choiceModel)
+    private void Select(AbstractNovelGraphNodeModel choiceModel, int interestChange)
     {
         selectedChoiceModel = choiceModel;
+        selectedInterestChange = interestChange;
         hasSelection = true;
     }
 }

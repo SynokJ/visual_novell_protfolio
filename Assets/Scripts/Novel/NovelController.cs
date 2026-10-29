@@ -7,6 +7,10 @@ public class NovelController : MonoBehaviour
 {
     public event Action<AbstractNovelGraphNodeModel> OnModelActivated = delegate { };
     public event Action<NovelChapterTransitionModel> OnTransitionActivated = delegate { };
+    public event Action<int> OnInterestChanged = delegate { };
+
+    // Timur's interest in Aika, accumulated from choices; lives per controller so every playthrough starts at 0.
+    public int Interest { get; private set; }
 
     [SerializeField] protected NovelModel model = default;
     [SerializeField] protected NovelChapterTransitionModel startTransition = default;
@@ -130,6 +134,7 @@ public class NovelController : MonoBehaviour
     protected virtual void UpdateByChoice()
     {
         AbstractNovelGraphNodeModel chosenModel = currentSpeachChoiceableModel.TryGetProgressModel(default);
+        ChangeInterest(currentSpeachChoiceableModel.SelectedInterestChange);
         currentSpeachChoiceableModel.ResetSelection();
 
         if (chosenModel == null)
@@ -142,6 +147,14 @@ public class NovelController : MonoBehaviour
         // a chapter transition or the end of a branch is handled like any other node.
         nextSpeachModel = chosenModel;
         StepNovelProgression();
+    }
+
+    protected virtual void ChangeInterest(int delta)
+    {
+        if (delta == 0) return;
+
+        Interest += delta;
+        OnInterestChanged(Interest);
     }
 
     protected virtual void Switch(AbstractNovelGraphNodeModel tempItemModel)
