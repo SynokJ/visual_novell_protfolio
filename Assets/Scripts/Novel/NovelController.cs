@@ -129,16 +129,19 @@ public class NovelController : MonoBehaviour
 
     protected virtual void UpdateByChoice()
     {
-        nextSpeachModel = currentSpeachChoiceableModel.TryGetProgressModel(default);
-        OnModelActivated(nextSpeachModel);
+        AbstractNovelGraphNodeModel chosenModel = currentSpeachChoiceableModel.TryGetProgressModel(default);
+        currentSpeachChoiceableModel.ResetSelection();
 
-        firstChoiceButton.onClick.RemoveAllListeners();
-        secondChoiceButton.onClick.RemoveAllListeners();
-        thirdChoiceButton.onClick.RemoveAllListeners();
+        if (chosenModel == null)
+        {
+            Debug.LogWarning($"Choice on '{currentSpeachChoiceableModel.name}' has no target model assigned.");
+            return;
+        }
 
-        nextButton.gameObject.SetActive(true);
-
-        Switch(nextSpeachModel);
+        // Route through the normal flow so a choice leading to another choice,
+        // a chapter transition or the end of a branch is handled like any other node.
+        nextSpeachModel = chosenModel;
+        StepNovelProgression();
     }
 
     protected virtual void Switch(AbstractNovelGraphNodeModel tempItemModel)

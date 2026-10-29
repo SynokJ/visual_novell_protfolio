@@ -18,29 +18,32 @@ public class NovelItemChoiceableModel : AbstractNovelItemModel
     [SerializeField] protected string secondChoiceText = default;
     [SerializeField] protected string thirdChoiceText = default;
 
+    // Runtime-only state: ScriptableObject fields persist between play sessions in the editor,
+    // so the selection must be cleared once consumed (see ResetSelection).
     protected AbstractNovelGraphNodeModel selectedChoiceModel = default;
+    protected bool hasSelection;
 
     public virtual void FirstChoiceSelect()
-    {
-        selectedChoiceModel = firstChoiceModel;
-        TryGetProgressModel(default);
-        Debug.Log("FirstChoiceSelect");
-    }
+        => Select(firstChoiceModel);
 
     public virtual void SecondChoiceSelect()
-    {
-        selectedChoiceModel = secondChoiceModel;
-        TryGetProgressModel(default);
-        Debug.Log("SecondChoiceSelect");
-    }
+        => Select(secondChoiceModel);
 
     public virtual void ThirdChoiceSelect()
+        => Select(thirdChoiceModel);
+
+    public virtual void ResetSelection()
     {
-        selectedChoiceModel = thirdChoiceModel;
-        TryGetProgressModel(default);
-        Debug.Log("ThirdChoiceSelect");
+        selectedChoiceModel = null;
+        hasSelection = false;
     }
 
     public override AbstractNovelGraphNodeModel TryGetProgressModel(AbstractNovelGraphNodeModel model)
-        => selectedChoiceModel.IsUnityNull() ? firstChoiceModel : selectedChoiceModel;
+        => hasSelection ? selectedChoiceModel : firstChoiceModel;
+
+    private void Select(AbstractNovelGraphNodeModel choiceModel)
+    {
+        selectedChoiceModel = choiceModel;
+        hasSelection = true;
+    }
 }
