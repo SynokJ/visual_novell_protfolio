@@ -18,4 +18,4 @@ MonoBehaviour:
   backgroundSprite: {fileID: -3423043350003973055, guid: cc5d0e24eb685bc47b8cef0b21da3341, type: 3}
   characterAnimTrigger: fromLeft
   editorNodeColor: {r: 0, g: 0, b: 0, a: 1}
-  nextModel: {fileID: 11400000, guid: 87ff77f87008454ca7163f0bd5f04123, type: 2}
+  nextModel: {fileID: 11400000, guid: dadf935e1c5f43efa8acd5494a40ab6c, type: 2}
