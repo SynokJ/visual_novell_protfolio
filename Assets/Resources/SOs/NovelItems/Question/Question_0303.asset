@@ -24,3 +24,6 @@ MonoBehaviour:
   firstChoiceText: "\u201C\u0423\u0431\u0435\u0440\u0438 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u201D"
   secondChoiceText: "\u0438\u0433\u043D\u043E\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
   thirdChoiceText: "\u201C\u0422\u044B \u0441\u0435\u0440\u044C\u0435\u0437\u043D\u043E?\u201D"
+  firstChoiceInterest: 1
+  secondChoiceInterest: -1
+  thirdChoiceInterest: 0
